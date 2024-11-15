@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hakkımda</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="nav-buttons">
+            <a href="index.html"><button class="nav-btn">Anasayfa</button></a>
+            <a href="about.html"><button class="nav-btn">Hakkımda</button></a>
+            <a href="projects.html"><button class="nav-btn">Projelerim</button></a>
+        </div>
+    </header>
+
+    <main>
+        <section class="content-section active">
+            <h1>Hakkımda</h1>
+            <p>Bilgisayar Mühendisliği öğrencisiyim ve son 4 yıldır oyun geliştirme üzerine çalışıyorum.</p>
+            <p>Oyun geliştirmek için sadece kodlama üzerine değil aynı zamanda Blender'da 3D modelleme ve animasyon üzerine de bir kaç yıl çalıştım.</p>
+
+            <!-- The hidden text -->
+            <div id="fullText" style="display: none;">
+                <p>Kodlama becerilerim için hem tek başıma hem de grup halinde beraber çalışıp projeler yaparak kendimi geliştirdim. Leetcode platformunda algoritmalar çözerek becerilerimi geliştirmeye devam ettim. Birlikte çalışmış olduğum farklı gruplar sayesinde takım çalışmasına yatkınım ve analitik düşünme becerilerimle problemleri hızlıca çözebiliyorum.</p>
+            </div>
+            
+            <p id="moreLink" class="show-more" onclick="showMore()">Daha fazla göster...</p>
+            <p id="lessLink" class="show-less" style="display: none;" onclick="showLess()">...daha az göster</p>
+        </section>
+    </main>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
