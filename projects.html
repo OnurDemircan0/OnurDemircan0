@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projelerim</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="nav-buttons">
+            <a href="index.html"><button class="nav-btn">Anasayfa</button></a>
+            <a href="about.html"><button class="nav-btn">Hakkımda</button></a>
+            <a href="projects.html"><button class="nav-btn">Projelerim</button></a>
+        </div>
+    </header>
+
+    <main>
+        <section class="content-section">
+            <div class="filter-controls">
+                <label for="sort-order" class="filter-text">Filter:</label>
+                <select id="sort-order" onchange="sortProjectsChronological()">
+                    <option value="earliest">En Eski</option>
+                    <option value="latest">En Yeni</option>
+                </select>
+            </div>
+
+            <div class="projects-title">Projeler</div>
+
+            <div class="project" data-date="2023-11-01">
+                <div class="project-info">
+                    <h2>Let's Break The Stones!</h2>
+                    <p>Konsantrasyon geliştiren basit bir oyun. Kontrol ettiğiniz objenin aynı rengindeki kayalara çarparak ve engelleri aşarak sona ulaşmaya çalışıyorsunuz. Farklı renkteki panellerden geçerek kontrol ettiğiniz objenin rengini değiştiriyorsunuz.</p>
+                    <p class="project-date">Date: 2023</p>
+                </div>
+                <div class="project-image-container">
+                    <img src="lbrs_thumbnail.png" alt="Project image" class="project-image">
+                    <div class="project-link-icon-container">
+                        <img src="https://static-00.iconduck.com/assets.00/google-play-icon-512x512-ejjbqcw6.png" alt="icon" class="project-link-icon" onclick="window.open('https://play.google.com/store/apps/details?id=com.GravityVortex.LetsBreakIt', '_blank')">
+                    </div>
+                </div>
+            </div>
+
+            <div class="project" data-date="2023-07-18">
+                <div class="project-info">
+                    <h2>MedBot</h2>
+                    <p>5 kişilik bir ekiple bootcamp yarışmasında yaptığımız bir oyun. İnsan vücudunda enjekte edilen ve virüslerle savaşan bir nanobotu oynuyorsunuz. İnsanlığı kurtarabilmek için karşınıza çıkan virüsleri yok etmeye çalışıyorsunuz.</p>
+                    <p class="project-date">Date: 2023</p>
+                </div>
+                <div class="project-image-container">
+                    <img src="medbot_thumbnail.png" alt="Project image" class="project-image">
+                    <div class="project-link-icon-container">
+                        <img src="https://yt3.googleusercontent.com/ytc/AIdro_kLPXPsWfJ6NhQqbZA8RTgs_tZc-my-bvASFAvMOB7soQ=s900-c-k-c0x00ffffff-no-rj" alt="icon" class="project-link-icon" onclick="window.open('https://onur-demircan.itch.io/medbot', '_blank')">
+                    </div>
+                </div>
+            </div>
+
+            <div class="project" data-date="2023-04-01">
+                <div class="project-info">
+                    <h2>Riddle Academy</h2>
+                    <p>4 kişilik bir ekiple game jam için geliştirdiğimiz bir oyun. Bir sınıf ortamında bir bilmece yarışması düzenleniyor. Siz de bir yarışmacısınız ve soruları bilmeye çalışıyorsunuz.</p>
+                    <p class="project-date">Date: 2023</p>
+                </div>
+                <div class="project-image-container">
+                    <img src="riddle_academy_thumbnail.png" alt="Project image" class="project-image">
+                    <div class="project-link-icon-container">
+                        <img src="https://yt3.googleusercontent.com/ytc/AIdro_kLPXPsWfJ6NhQqbZA8RTgs_tZc-my-bvASFAvMOB7soQ=s900-c-k-c0x00ffffff-no-rj" alt="icon" class="project-link-icon" onclick="window.open('https://onur-demircan.itch.io/riddleacademy', '_blank')">
+                    </div>
+                </div>
+            </div>
+
+            <div class="project" data-date="2023-09-08">
+                <div class="project-info">
+                    <h2>Rapid Rocket</h2>
+                    <p>Bir Udemy kursu ile beraber geliştirdiğim bir oyun. Bir roketi kontrol edip yakıtınızı verimli kullanarak yeşil platforma ulaşmaya çalışıyorsunuz.</p>
+                    <p class="project-date">Date: 2023</p>
+                </div>
+                <div class="project-image-container">
+                    <img src="rapid_rocket_thumbnail.png" alt="Project image" class="project-image">
+                    <div class="project-link-icon-container">
+                        <img src="https://yt3.googleusercontent.com/ytc/AIdro_kLPXPsWfJ6NhQqbZA8RTgs_tZc-my-bvASFAvMOB7soQ=s900-c-k-c0x00ffffff-no-rj" alt="icon" class="project-link-icon" onclick="window.open('https://onur-demircan.itch.io/rapid-rocket', '_blank')">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
