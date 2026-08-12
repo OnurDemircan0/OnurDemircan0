@@ -13,8 +13,7 @@ const translations = {
         btn_send: "Send",
         alert_sent: "Your message has been sent!",
         about_title: "About Me",
-        about_p1: "I am a Computer Engineering student and have been working on game development for the last 4 years.",
-        about_p2: "I have worked not only on coding for game development but also on 3D modeling and animation in Blender for a few years.",
+        about_p1: "I am a game developer.",
         about_p3: "I have improved my coding skills by working both individually and in groups. I continued to improve my skills by solving algorithms on the Leetcode platform. Thanks to the different groups I have worked with, I am prone to teamwork and can solve problems quickly with my analytical thinking skills.",
         show_more: "Show more...",
         show_less: "...show less",
@@ -25,7 +24,12 @@ const translations = {
         lbrs_desc: "A simple game that improves concentration. You try to reach the end by hitting rocks of the same color as the object you control and overcoming obstacles. You change the color of your object by passing through different colored panels.",
         medbot_desc: "A game we made in a bootcamp competition with a team of 5 people. You play a nanobot injected into the human body fighting viruses. You try to destroy the viruses you encounter to save humanity.",
         riddle_desc: "A game we developed for a game jam with a team of 4 people. A riddle competition is held in a classroom environment. You are a contestant trying to guess the answers.",
-        rapid_desc: "A game I developed along with a Udemy course. You control a rocket and try to reach the green platform using your fuel efficiently."
+        rapid_desc: "A game I developed along with a Udemy course. You control a rocket and try to reach the green platform using your fuel efficiently.",
+        btn_view_details: "View Details",
+        btn_back: "← Back to Projects",
+        btn_store: "Play Store",
+        btn_privacy: "Privacy Policy",
+        error_not_found: "Project not found."
     },
     tr: {
         nav_home: "Anasayfa",
@@ -41,8 +45,7 @@ const translations = {
         btn_send: "Gönder",
         alert_sent: "Mesajınız gönderildi!",
         about_title: "Hakkımda",
-        about_p1: "Bilgisayar Mühendisliği öğrencisiyim ve son 4 yıldır oyun geliştirme üzerine çalışıyorum.",
-        about_p2: "Oyun geliştirmek için sadece kodlama üzerine değil aynı zamanda Blender'da 3D modelleme ve animasyon üzerine de bir kaç yıl çalıştım.",
+        about_p1: "Oyun geliştiricisiyim.",
         about_p3: "Kodlama becerilerim için hem tek başıma hem de grup halinde beraber çalışıp projeler yaparak kendimi geliştirdim. Leetcode platformunda algoritmalar çözerek becerilerimi geliştirmeye devam ettim. Birlikte çalışmış olduğum farklı gruplar sayesinde takım çalışmasına yatkınım ve analitik düşünme becerilerimle problemleri hızlıca çözebiliyorum.",
         show_more: "Daha fazla göster...",
         show_less: "...daha az göster",
@@ -53,7 +56,12 @@ const translations = {
         lbrs_desc: "Konsantrasyon geliştiren basit bir oyun. Kontrol ettiğiniz objenin aynı rengindeki kayalara çarparak ve engelleri aşarak sona ulaşmaya çalışıyorsunuz. Farklı renkteki panellerden geçerek kontrol ettiğiniz objenin rengini değiştiriyorsunuz.",
         medbot_desc: "5 kişilik bir ekiple bootcamp yarışmasında yaptığımız bir oyun. İnsan vücudunda enjekte edilen ve virüslerle savaşan bir nanobotu oynuyorsunuz. İnsanlığı kurtarabilmek için karşınıza çıkan virüsleri yok etmeye çalışıyorsunuz.",
         riddle_desc: "4 kişilik bir ekiple game jam için geliştirdiğimiz bir oyun. Bir sınıf ortamında bir bilmece yarışması düzenleniyor. Siz de bir yarışmacısınız ve soruları bilmeye çalışıyorsunuz.",
-        rapid_desc: "Bir Udemy kursu ile beraber geliştirdiğim bir oyun. Bir roketi kontrol edip yakıtınızı verimli kullanarak yeşil platforma ulaşmaya çalışıyorsunuz."
+        rapid_desc: "Bir Udemy kursu ile beraber geliştirdiğim bir oyun. Bir roketi kontrol edip yakıtınızı verimli kullanarak yeşil platforma ulaşmaya çalışıyorsunuz.",
+        btn_view_details: "İncele",
+        btn_back: "← Projelere Dön",
+        btn_store: "Play Store",
+        btn_privacy: "Gizlilik Politikası",
+        error_not_found: "Proje bulunamadı."
     }
 };
 

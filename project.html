@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Details</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+    <header>
+        <nav class="nav-buttons">
+            <a href="index.html"><button class="nav-btn" data-i18n="nav_home">Home</button></a>
+            <a href="about.html"><button class="nav-btn" data-i18n="nav_about">About Me</button></a>
+            <a href="projects.html"><button class="nav-btn" data-i18n="nav_projects">My Projects</button></a>
+        </nav>
+        <div class="lang-selector">
+            <button class="lang-btn" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="tr">TR</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="content-section project-detail-section">
+            <a href="projects.html" class="back-btn" data-i18n="btn_back">← Back to Projects</a>
+            
+            <div id="project-detail-container" style="display: none; margin-top: 2rem;">
+                <h1 id="proj-title" class="title"></h1>
+                
+                <div class="project-layout">
+                    <!-- Image Gallery / Carousel -->
+                    <div class="project-gallery">
+                        <div class="main-img-wrapper">
+                            <img id="main-gallery-img" src="" alt="Project Image">
+                            <div class="gallery-controls" id="gallery-controls" style="display: none;">
+                                <button id="prev-img" class="gallery-btn">❮</button>
+                                <button id="next-img" class="gallery-btn">❯</button>
+                            </div>
+                        </div>
+                        <div id="gallery-thumbnails" class="gallery-thumbnails"></div>
+                    </div>
+
+                    <!-- Details -->
+                    <div class="project-content">
+                        <p id="proj-desc" class="paragraph" style="margin-bottom: 2rem;"></p>
+                        
+                        <div class="project-actions">
+                            <a id="store-link" href="#" target="_blank" class="cta-btn primary-btn">
+                                <span data-i18n="btn_store">Play Store</span>
+                            </a>
+                            <a id="privacy-link" href="#" target="_blank" class="cta-btn secondary-btn">
+                                <span data-i18n="btn_privacy">Privacy Policy</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="error-container" style="display: none; text-align: center; margin-top: 3rem;">
+                <h2 data-i18n="error_not_found">Project not found.</h2>
+            </div>
+        </section>
+    </main>
+
+    <script src="assets/js/i18n.js"></script>
+    <script src="assets/js/data.js"></script>
+    <script src="assets/js/project-detail.js"></script>
+    <script src="assets/js/app.js"></script>
+</body>
+</html>
