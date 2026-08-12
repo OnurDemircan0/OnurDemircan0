@@ -403,78 +403,127 @@ button[type="submit"]:hover {
 
 /* Projects Grid (Summary Page) */
 .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
     margin-top: 1rem;
 }
 
-.project-summary-card {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid var(--glass-border);
-    border-radius: 16px;
-    overflow: hidden;
+.app-store-card {
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
     cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex;
-    flex-direction: column;
+    transition: transform 0.2s ease;
 }
 
-.project-summary-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    background: rgba(255, 255, 255, 0.04);
+.card-header:hover {
+    transform: translateX(10px);
 }
 
-.card-image-wrapper {
-    width: 100%;
-    height: 200px;
-    overflow: hidden;
-}
-
-.card-image-wrapper img {
-    width: 100%;
-    height: 100%;
+.app-logo {
+    width: 90px;
+    height: 90px;
+    border-radius: 22%;
     object-fit: cover;
-    transition: transform 0.5s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--glass-border);
 }
 
-.project-summary-card:hover .card-image-wrapper img {
-    transform: scale(1.05);
-}
-
-.card-content {
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
+.app-info {
     flex: 1;
 }
 
-.card-content h3 {
-    margin-bottom: 0.5rem;
-    font-size: 1.25rem;
+.app-info h3 {
+    margin-bottom: 0.25rem;
+    font-size: 1.5rem;
     color: var(--text-primary);
 }
 
-.card-desc {
+.card-header .card-desc {
     color: var(--text-secondary);
     font-size: 0.95rem;
-    margin-bottom: 1.5rem;
-    flex: 1;
+    margin-bottom: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
-.card-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-top: 1px solid var(--glass-border);
-    padding-top: 1rem;
-}
-
-.view-btn {
-    color: var(--accent-primary);
+.card-header .view-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border);
+    color: var(--text-primary);
+    padding: 0.6rem 1.5rem;
+    border-radius: 30px;
     font-weight: 600;
     font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.card-header .view-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: var(--accent-primary);
+}
+
+.card-gallery {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 1rem;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Custom Scrollbar for Gallery */
+.card-gallery::-webkit-scrollbar {
+    height: 8px;
+}
+.card-gallery::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+.card-gallery::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+.card-gallery::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-primary);
+}
+
+.card-gallery img {
+    /* 3 images visible at a time */
+    flex: 0 0 calc(33.333% - 0.67rem);
+    aspect-ratio: 9/16;
+    object-fit: cover;
+    border-radius: 12px;
+    scroll-snap-align: start;
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: opacity 0.3s ease;
+}
+
+.card-gallery img:hover {
+    opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+    .card-gallery img {
+        /* On mobile, show ~2.2 images so user knows they can scroll */
+        flex: 0 0 calc(45% - 1rem);
+    }
+    .app-logo {
+        width: 70px;
+        height: 70px;
+    }
 }
 
 /* Project Detail Page */

@@ -7,10 +7,13 @@ const projectsData = [
         id: "lbrs",
         date: "2023-11-01",
         title: "Let's Break The Stones!",
-        thumbnail: "assets/images/lbrs/thumbnail.png",
-        // Add more images to this array for the gallery
+        logo: "assets/images/lbrs/LBS Logo.png",
         images: [
-            "assets/images/lbrs/thumbnail.png"
+            "assets/images/lbrs/Play Store 1.png",
+            "assets/images/lbrs/Play Store 2.png",
+            "assets/images/lbrs/Play Store 3.png",
+            "assets/images/lbrs/Play Store 4.png",
+            "assets/images/lbrs/Play Store 5.png"
         ],
         storeLink: "https://play.google.com/store/apps/details?id=com.GravityVortex.LetsBreakIt",
         privacyLink: "#", // Replace '#' with your actual privacy policy URL
@@ -29,7 +32,7 @@ const projectsData = [
         id: "msc",
         date: "2024-05-01", // Tarihi kendinize göre güncelleyebilirsiniz
         title: "MindSharp Challenges",
-        thumbnail: "assets/images/msc/Multiple Games Showcase Play Store en.png", // Ana kapak resmi
+        logo: "assets/images/msc/MindSharp Challenges Logo 1024x1024.png",
         images: [
             "assets/images/msc/Multiple Games Showcase Play Store en.png",
             "assets/images/msc/Color Confusion Play Store en.png",
@@ -57,7 +60,7 @@ const projectsData = [
         id: "igt",
         date: "2024-08-01", // Tarihi kendinize göre güncelleyebilirsiniz
         title: "Islamic Games Together",
-        thumbnail: "assets/images/igt/Play Store Screenshot En 1.png", // Ana kapak resmi
+        logo: "assets/images/igt/IGT Logo 1024x1024.png",
         images: [
             "assets/images/igt/Play Store Screenshot En 1.png",
             "assets/images/igt/Play Store Screenshot Codenames En.png",

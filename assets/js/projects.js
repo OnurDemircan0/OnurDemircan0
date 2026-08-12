@@ -9,30 +9,33 @@ function renderProjects() {
     projectsData.forEach(project => {
         // Create the card element
         const card = document.createElement('article');
-        card.className = 'project-summary-card';
+        card.className = 'app-store-card';
         card.setAttribute('data-date', project.date);
         
-        // When clicking anywhere on the card, go to the detail page
-        card.onclick = () => {
-            window.location.href = `project.html?id=${project.id}`;
-        };
-
         // Determine current text based on language
         const lang = window.currentLang || 'en';
         const title = project.title;
         const shortDesc = project.desc_short[lang];
 
+        // Generate images HTML
+        let imagesHTML = '';
+        if (project.images && project.images.length > 0) {
+            project.images.forEach(imgSrc => {
+                imagesHTML += `<img src="${imgSrc}" loading="lazy" alt="Screenshot">`;
+            });
+        }
+
         card.innerHTML = `
-            <div class="card-image-wrapper">
-                <img src="${project.thumbnail}" alt="${title}" loading="lazy">
-            </div>
-            <div class="card-content">
-                <h3>${title}</h3>
-                <p class="card-desc">${shortDesc}</p>
-                <div class="card-footer">
-                    <span class="project-date">Date: ${project.date.split('-')[0]}</span>
-                    <span class="view-btn" data-i18n="btn_view_details">View Details</span>
+            <div class="card-header" onclick="window.location.href = 'project.html?id=${project.id}'">
+                <img src="${project.logo}" alt="${title} Logo" class="app-logo" loading="lazy">
+                <div class="app-info">
+                    <h3>${title}</h3>
+                    <p class="card-desc">${shortDesc}</p>
                 </div>
+                <button class="view-btn" data-i18n="btn_view_details">View Details</button>
+            </div>
+            <div class="card-gallery">
+                ${imagesHTML}
             </div>
         `;
         
