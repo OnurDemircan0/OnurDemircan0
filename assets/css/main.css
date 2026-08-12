@@ -420,6 +420,7 @@ button[type="submit"]:hover {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    min-width: 0; /* Prevents card from breaking the CSS grid width */
 }
 
 .card-header {
@@ -486,6 +487,7 @@ button[type="submit"]:hover {
     align-items: center;
     margin: 0 auto;
     max-width: 100%;
+    min-width: 0; /* Prevents overflow */
 }
 
 .scroll-arrow {
@@ -537,10 +539,10 @@ button[type="submit"]:hover {
 }
 
 .card-gallery img {
-    height: 220px; /* Adjusted height to fit 3 images nicely in 2 columns */
-    width: auto;
+    /* Exactly 3 images visible based on container width */
+    flex: 0 0 calc(33.333% - 0.67rem);
+    height: auto; 
     aspect-ratio: 9/16;
-    flex-shrink: 0; /* Prevent shrinking */
     object-fit: cover;
     border-radius: 12px;
     scroll-snap-align: start;
@@ -555,7 +557,8 @@ button[type="submit"]:hover {
 
 @media (max-width: 768px) {
     .card-gallery img {
-        height: 200px; /* Even smaller on mobile */
+        /* On mobile, show ~2.2 images so user knows they can scroll */
+        flex: 0 0 calc(45% - 1rem);
     }
     .app-logo {
         width: 70px;
