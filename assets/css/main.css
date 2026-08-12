@@ -750,6 +750,7 @@ button[type="submit"]:hover {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 2rem; /* Creates space between arrows and image */
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s ease;
@@ -761,7 +762,7 @@ button[type="submit"]:hover {
 }
 
 .lightbox-content {
-    max-width: 90%;
+    max-width: 80%; /* Slightly reduced to leave room for arrows */
     max-height: 90%;
     border-radius: 12px;
     box-shadow: 0 10px 40px rgba(0,0,0,0.5);
@@ -795,9 +796,6 @@ button[type="submit"]:hover {
 }
 
 .lightbox-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
     background: rgba(0, 0, 0, 0.6);
     color: white;
     border: none;
@@ -812,27 +810,24 @@ button[type="submit"]:hover {
     backdrop-filter: blur(4px);
     transition: background 0.2s ease, transform 0.2s ease;
     z-index: 10001;
+    flex-shrink: 0; /* Prevent buttons from squishing */
 }
 
 .lightbox-btn:hover {
     background: var(--accent-primary);
-    transform: translateY(-50%) scale(1.1);
-}
-
-#lightbox-prev {
-    left: 30px;
-}
-
-#lightbox-next {
-    right: 30px;
+    transform: scale(1.1);
 }
 
 @media (max-width: 768px) {
+    .lightbox-modal {
+        gap: 0.5rem; /* Less space on mobile */
+    }
+    .lightbox-content {
+        max-width: 75%; /* Leave space for buttons on mobile */
+    }
     .lightbox-btn {
         width: 40px;
         height: 40px;
         font-size: 1.2rem;
     }
-    #lightbox-prev { left: 10px; }
-    #lightbox-next { right: 10px; }
 }
