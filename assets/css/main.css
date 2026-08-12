@@ -474,35 +474,67 @@ button[type="submit"]:hover {
     color: var(--accent-primary);
 }
 
+.card-gallery-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+.scroll-arrow {
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    backdrop-filter: blur(4px);
+    font-size: 1.2rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: background 0.2s;
+}
+
+.scroll-arrow:hover {
+    background: var(--accent-primary);
+}
+
+.scroll-arrow.left {
+    left: -18px;
+}
+
+.scroll-arrow.right {
+    right: -18px;
+}
+
 .card-gallery {
     display: flex;
     gap: 1rem;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    padding-bottom: 1rem;
+    padding-bottom: 0.5rem;
     -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    /* Hide scrollbar since we have arrows now */
+    scrollbar-width: none;
 }
-
-/* Custom Scrollbar for Gallery */
 .card-gallery::-webkit-scrollbar {
-    height: 8px;
-}
-.card-gallery::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
-}
-.card-gallery::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-}
-.card-gallery::-webkit-scrollbar-thumb:hover {
-    background: var(--accent-primary);
+    display: none;
 }
 
 .card-gallery img {
-    /* 3 images visible at a time */
-    flex: 0 0 calc(33.333% - 0.67rem);
+    height: 260px; /* Fixed smaller height so they aren't huge */
+    width: auto;
     aspect-ratio: 9/16;
+    flex-shrink: 0; /* Prevent shrinking */
     object-fit: cover;
     border-radius: 12px;
     scroll-snap-align: start;
@@ -517,12 +549,14 @@ button[type="submit"]:hover {
 
 @media (max-width: 768px) {
     .card-gallery img {
-        /* On mobile, show ~2.2 images so user knows they can scroll */
-        flex: 0 0 calc(45% - 1rem);
+        height: 200px; /* Even smaller on mobile */
     }
     .app-logo {
         width: 70px;
         height: 70px;
+    }
+    .scroll-arrow {
+        display: none; /* Hide arrows on touch devices, swiping is better */
     }
 }
 

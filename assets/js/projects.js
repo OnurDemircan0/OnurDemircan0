@@ -1,5 +1,14 @@
 // Project Filtering and Rendering Logic
 
+function scrollGallery(id, direction) {
+    const gallery = document.getElementById(`gallery-${id}`);
+    if (gallery) {
+        // Scroll exactly one image width + gap
+        const scrollAmount = gallery.querySelector('img').clientWidth + 16; 
+        gallery.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+    }
+}
+
 function renderProjects() {
     const container = document.getElementById('projects-container');
     if (!container || typeof projectsData === 'undefined') return;
@@ -21,9 +30,12 @@ function renderProjects() {
         let imagesHTML = '';
         if (project.images && project.images.length > 0) {
             project.images.forEach(imgSrc => {
-                imagesHTML += `<img src="${imgSrc}" loading="lazy" alt="Screenshot">`;
+                imagesHTML += `<img src="${imgSrc}" loading="lazy" alt="Screenshot" onclick="window.location.href = 'project.html?id=${project.id}'">`;
             });
         }
+
+        // Only show arrows if there are more than 3 images
+        const showArrows = project.images && project.images.length > 3;
 
         card.innerHTML = `
             <div class="card-header" onclick="window.location.href = 'project.html?id=${project.id}'">
@@ -34,8 +46,12 @@ function renderProjects() {
                 </div>
                 <button class="view-btn" data-i18n="btn_view_details">View Details</button>
             </div>
-            <div class="card-gallery">
-                ${imagesHTML}
+            <div class="card-gallery-wrapper">
+                ${showArrows ? `<button class="scroll-arrow left" onclick="scrollGallery('${project.id}', -1)">❮</button>` : ''}
+                <div class="card-gallery" id="gallery-${project.id}">
+                    ${imagesHTML}
+                </div>
+                ${showArrows ? `<button class="scroll-arrow right" onclick="scrollGallery('${project.id}', 1)">❯</button>` : ''}
             </div>
         `;
         
