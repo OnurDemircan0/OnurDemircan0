@@ -102,6 +102,15 @@ function setImage(index) {
         if (i === index) t.classList.add('active');
         else t.classList.remove('active');
     });
+
+    // Automatically scroll the thumbnail into view
+    const thumbContainer = document.getElementById('gallery-thumbnails');
+    const activeThumb = thumbs[index];
+    if (activeThumb && thumbContainer) {
+        // Calculate position to center the thumbnail
+        const scrollLeft = activeThumb.offsetLeft - (thumbContainer.clientWidth / 2) + (activeThumb.clientWidth / 2);
+        thumbContainer.scrollTo({ left: scrollLeft, behavior: 'smooth' });
+    }
 }
 
 function nextImage() {
@@ -120,6 +129,37 @@ function showError() {
     document.getElementById('error-container').style.display = 'block';
 }
 
+function setupLightbox() {
+    const lightbox = document.getElementById('lightbox-modal');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const closeBtn = document.querySelector('.lightbox-close');
+    const mainImg = document.getElementById('main-gallery-img');
+
+    if (mainImg && lightbox) {
+        mainImg.addEventListener('click', () => {
+            lightboxImg.src = mainImg.src;
+            lightbox.style.display = 'flex';
+            // slight delay to allow display flex to apply before opacity transition
+            setTimeout(() => lightbox.classList.add('active'), 10);
+        });
+
+        const closeLightbox = () => {
+            lightbox.classList.remove('active');
+            setTimeout(() => lightbox.style.display = 'none', 300); // match CSS transition duration
+        };
+
+        if (closeBtn) {
+            closeBtn.addEventListener('click', closeLightbox);
+        }
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target !== lightboxImg) {
+                closeLightbox();
+            }
+        });
+    }
+}
+
 window.addEventListener('DOMContentLoaded', () => {
     loadProjectDetails();
 
@@ -128,4 +168,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
     if (nextBtn) nextBtn.addEventListener('click', nextImage);
     if (prevBtn) prevBtn.addEventListener('click', prevImage);
+    
+    setupLightbox();
 });
