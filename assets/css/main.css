@@ -612,21 +612,20 @@ button[type="submit"]:hover {
     overflow: hidden;
     border: 1px solid var(--glass-border);
     background: rgba(0, 0, 0, 0.2);
-    /* Set an aspect ratio roughly 9:16 for portrait games, but allow flexibility */
-    aspect-ratio: 9 / 16;
+    /* Shrink-wrap the image so arrows always hug it tightly */
+    width: fit-content;
+    max-width: 100%;
+    margin: 0 auto;
     max-height: 60vh; 
     display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .main-img-wrapper img {
     max-width: 100%;
-    max-height: 450px; /* Constrain height so portrait images don't get huge */
-    object-fit: contain; /* ensures whole image is visible */
+    max-height: 60vh;
+    object-fit: contain;
     transition: opacity 0.2s ease-in-out;
     display: block;
-    margin: 0 auto; /* Center image horizontally in the wrapper */
 }
 
 .gallery-controls {
