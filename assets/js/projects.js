@@ -9,6 +9,56 @@ function scrollGallery(id, direction) {
     }
 }
 
+function makeDraggableScroll(slider) {
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+    let isDragging = false;
+
+    slider.addEventListener('mousedown', (e) => {
+        isDown = true;
+        isDragging = false;
+        slider.style.cursor = 'grabbing';
+        startX = e.pageX - slider.offsetLeft;
+        scrollLeft = slider.scrollLeft;
+        // prevent native image drag
+        if (e.target.tagName.toLowerCase() === 'img') {
+            e.preventDefault();
+        }
+    });
+
+    slider.addEventListener('mouseleave', () => {
+        isDown = false;
+        slider.style.cursor = 'grab';
+    });
+
+    slider.addEventListener('mouseup', () => {
+        isDown = false;
+        slider.style.cursor = 'grab';
+    });
+
+    slider.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        const x = e.pageX - slider.offsetLeft;
+        const walk = (x - startX) * 2; // scroll-fast
+        if (Math.abs(walk) > 10) {
+            isDragging = true; // flag as dragging to prevent click
+        }
+        slider.scrollLeft = scrollLeft - walk;
+    });
+
+    // Intercept clicks on images to prevent navigation if dragging
+    slider.addEventListener('click', (e) => {
+        if (isDragging) {
+            e.preventDefault();
+            e.stopPropagation();
+        } else if (e.target.tagName.toLowerCase() === 'img') {
+            const url = e.target.getAttribute('data-href');
+            if (url) window.location.href = url;
+        }
+    }, true);
+}
+
 function renderProjects() {
     const container = document.getElementById('projects-container');
     if (!container || typeof projectsData === 'undefined') return;
@@ -30,7 +80,7 @@ function renderProjects() {
         let imagesHTML = '';
         if (project.images && project.images.length > 0) {
             project.images.forEach(imgSrc => {
-                imagesHTML += `<img src="${imgSrc}" loading="lazy" alt="Screenshot" onclick="window.location.href = 'project.html?id=${project.id}'">`;
+                imagesHTML += `<img src="${imgSrc}" loading="lazy" alt="Screenshot" data-href="project.html?id=${project.id}">`;
             });
         }
 
@@ -56,6 +106,13 @@ function renderProjects() {
         `;
         
         container.appendChild(card);
+
+        // Make gallery draggable
+        const gallery = card.querySelector('.card-gallery');
+        if (gallery) {
+            gallery.style.cursor = 'grab';
+            makeDraggableScroll(gallery);
+        }
     });
 
     // We must re-translate because we just injected new data-i18n elements (like View Details)

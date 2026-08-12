@@ -3,6 +3,76 @@
 let currentProjectImages = [];
 let currentImageIndex = 0;
 
+function makeDraggableScroll(slider) {
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+    let isDragging = false;
+
+    slider.addEventListener('mousedown', (e) => {
+        isDown = true;
+        isDragging = false;
+        slider.style.cursor = 'grabbing';
+        startX = e.pageX - slider.offsetLeft;
+        scrollLeft = slider.scrollLeft;
+        if (e.target.tagName.toLowerCase() === 'img') e.preventDefault();
+    });
+    slider.addEventListener('mouseleave', () => {
+        isDown = false;
+        slider.style.cursor = 'grab';
+    });
+    slider.addEventListener('mouseup', () => {
+        isDown = false;
+        slider.style.cursor = 'grab';
+    });
+    slider.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        const x = e.pageX - slider.offsetLeft;
+        const walk = (x - startX) * 2;
+        if (Math.abs(walk) > 10) isDragging = true;
+        slider.scrollLeft = scrollLeft - walk;
+    });
+    slider.addEventListener('click', (e) => {
+        if (isDragging) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+    }, true); // Capture phase to prevent thumbnail clicks
+}
+
+function makeSwipeable(imgElement, onSwipeLeft, onSwipeRight) {
+    let startX = 0;
+    let isDown = false;
+
+    imgElement.addEventListener('mousedown', (e) => {
+        isDown = true;
+        startX = e.pageX;
+        e.preventDefault();
+        imgElement.style.cursor = 'grabbing';
+    });
+    imgElement.addEventListener('mouseup', (e) => {
+        if (!isDown) return;
+        isDown = false;
+        imgElement.style.cursor = 'grab';
+        let diff = e.pageX - startX;
+        if (diff > 50) onSwipeRight();
+        else if (diff < -50) onSwipeLeft();
+    });
+    imgElement.addEventListener('mouseleave', () => {
+        isDown = false;
+        imgElement.style.cursor = 'grab';
+    });
+    
+    imgElement.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+    });
+    imgElement.addEventListener('touchend', (e) => {
+        let diff = e.changedTouches[0].clientX - startX;
+        if (diff > 50) onSwipeRight();
+        else if (diff < -50) onSwipeLeft();
+    });
+}
+
 function loadProjectDetails() {
     // Get ID from URL
     const params = new URLSearchParams(window.location.search);
@@ -37,6 +107,8 @@ function loadProjectDetails() {
     
     const mainImg = document.getElementById('main-gallery-img');
     mainImg.src = currentProjectImages[currentImageIndex];
+    // Main image can also be swiped to change
+    makeSwipeable(mainImg, nextImage, prevImage);
 
     const controls = document.getElementById('gallery-controls');
     const thumbnailsContainer = document.getElementById('gallery-thumbnails');
@@ -53,6 +125,10 @@ function loadProjectDetails() {
             thumb.onclick = () => setImage(index);
             thumbnailsContainer.appendChild(thumb);
         });
+
+        // Make thumbnails draggable
+        thumbnailsContainer.style.cursor = 'grab';
+        makeDraggableScroll(thumbnailsContainer);
     } else {
         controls.style.display = 'none';
         thumbnailsContainer.innerHTML = '';
@@ -189,6 +265,14 @@ function setupLightbox() {
                 prevImage();
             });
         }
+
+        // Make lightbox image swipeable
+        makeSwipeable(lightboxImg, nextImage, prevImage);
+        
+        // Prevent clicking the swipeable image from closing the lightbox
+        lightboxImg.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
 
         lightbox.addEventListener('click', (e) => {
             if (e.target !== lightboxImg && e.target !== lightboxNextBtn && e.target !== lightboxPrevBtn) {
