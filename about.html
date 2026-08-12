@@ -3,34 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hakkımda</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta name="description" content="About Onur Demircan, Computer Engineering student and game developer.">
+    <title data-i18n="nav_about">About Me</title>
+    <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
     <header>
-        <div class="nav-buttons">
-            <a href="index.html"><button class="nav-btn">Anasayfa</button></a>
-            <a href="about.html"><button class="nav-btn">Hakkımda</button></a>
-            <a href="projects.html"><button class="nav-btn">Projelerim</button></a>
+        <nav class="nav-buttons">
+            <a href="index.html"><button class="nav-btn" data-i18n="nav_home">Home</button></a>
+            <a href="about.html" class="active"><button class="nav-btn" data-i18n="nav_about">About Me</button></a>
+            <a href="projects.html"><button class="nav-btn" data-i18n="nav_projects">My Projects</button></a>
+        </nav>
+        <div class="lang-selector">
+            <button class="lang-btn" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="tr">TR</button>
         </div>
     </header>
 
     <main>
-        <section class="content-section active">
-            <h1>Hakkımda</h1>
-            <p>Bilgisayar Mühendisliği öğrencisiyim ve son 4 yıldır oyun geliştirme üzerine çalışıyorum.</p>
-            <p>Oyun geliştirmek için sadece kodlama üzerine değil aynı zamanda Blender'da 3D modelleme ve animasyon üzerine de bir kaç yıl çalıştım.</p>
+        <section class="content-section">
+            <h1 data-i18n="about_title" class="title">About Me</h1>
+            <article>
+                <p class="paragraph" data-i18n="about_p1">I am a Computer Engineering student and have been working on game development for the last 4 years.</p>
+                <p class="paragraph" data-i18n="about_p2">I have worked not only on coding for game development but also on 3D modeling and animation in Blender for a few years.</p>
 
-            <!-- The hidden text -->
-            <div id="fullText" style="display: none;">
-                <p>Kodlama becerilerim için hem tek başıma hem de grup halinde beraber çalışıp projeler yaparak kendimi geliştirdim. Leetcode platformunda algoritmalar çözerek becerilerimi geliştirmeye devam ettim. Birlikte çalışmış olduğum farklı gruplar sayesinde takım çalışmasına yatkınım ve analitik düşünme becerilerimle problemleri hızlıca çözebiliyorum.</p>
-            </div>
-            
-            <p id="moreLink" class="show-more" onclick="showMore()">Daha fazla göster...</p>
-            <p id="lessLink" class="show-less" style="display: none;" onclick="showLess()">...daha az göster</p>
+                <!-- The hidden text -->
+                <div id="fullText" style="display: none;">
+                    <p class="paragraph" data-i18n="about_p3">I have improved my coding skills by working both individually and in groups. I continued to improve my skills by solving algorithms on the Leetcode platform. Thanks to the different groups I have worked with, I am prone to teamwork and can solve problems quickly with my analytical thinking skills.</p>
+                </div>
+                
+                <span id="moreLink" class="show-more" onclick="showMore()" data-i18n="show_more">Show more...</span>
+                <span id="lessLink" class="show-less" style="display: none;" onclick="showLess()" data-i18n="show_less">...show less</span>
+            </article>
         </section>
     </main>
 
-    <script src="about_scripts.js"></script>
+    <script src="assets/js/i18n.js"></script>
+    <script src="assets/js/app.js"></script>
 </body>
 </html>
