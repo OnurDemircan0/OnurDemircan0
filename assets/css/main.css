@@ -622,9 +622,11 @@ button[type="submit"]:hover {
 
 .main-img-wrapper img {
     max-width: 100%;
-    max-height: 100%;
+    max-height: 450px; /* Constrain height so portrait images don't get huge */
     object-fit: contain; /* ensures whole image is visible */
     transition: opacity 0.2s ease-in-out;
+    display: block;
+    margin: 0 auto; /* Center image horizontally in the wrapper */
 }
 
 .gallery-controls {

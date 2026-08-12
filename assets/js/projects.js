@@ -41,7 +41,7 @@ function makeDraggableScroll(slider) {
         if (!isDown) return;
         const x = e.pageX - slider.offsetLeft;
         const walk = (x - startX) * 2; // scroll-fast
-        if (Math.abs(walk) > 10) {
+        if (Math.abs(walk) > 6) {
             isDragging = true; // flag as dragging to prevent click
         }
         slider.scrollLeft = scrollLeft - walk;

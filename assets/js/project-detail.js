@@ -29,7 +29,7 @@ function makeDraggableScroll(slider) {
         if (!isDown) return;
         const x = e.pageX - slider.offsetLeft;
         const walk = (x - startX) * 2;
-        if (Math.abs(walk) > 10) isDragging = true;
+        if (Math.abs(walk) > 6) isDragging = true;
         slider.scrollLeft = scrollLeft - walk;
     });
     slider.addEventListener('click', (e) => {
@@ -55,8 +55,8 @@ function makeSwipeable(imgElement, onSwipeLeft, onSwipeRight) {
     imgElement.addEventListener('mousemove', (e) => {
         if (!isDown) return;
         let diff = e.pageX - startX;
-        if (Math.abs(diff) > 10) {
-            isDragging = true; // Mark as dragging if moved more than 10px
+        if (Math.abs(diff) > 6) {
+            isDragging = true; // Mark as dragging if moved more than 6px
         }
     });
     imgElement.addEventListener('mouseup', (e) => {
