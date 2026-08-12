@@ -608,10 +608,6 @@ button[type="submit"]:hover {
 
 .main-img-wrapper {
     position: relative;
-    border-radius: 16px;
-    overflow: hidden;
-    border: 1px solid var(--glass-border);
-    background: rgba(0, 0, 0, 0.2);
     /* Shrink-wrap the image so arrows always hug it tightly */
     width: fit-content;
     max-width: 100%;
@@ -626,6 +622,9 @@ button[type="submit"]:hover {
     object-fit: contain;
     transition: opacity 0.2s ease-in-out;
     display: block;
+    border-radius: 16px;
+    border: 1px solid var(--glass-border);
+    background: rgba(0, 0, 0, 0.2);
 }
 
 .gallery-controls {
