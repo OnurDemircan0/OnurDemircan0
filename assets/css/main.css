@@ -636,6 +636,7 @@ button[type="submit"]:hover {
     display: flex;
     justify-content: space-between;
     padding: 0 10px;
+    pointer-events: none; /* Let clicks pass through to the image below */
 }
 
 .gallery-btn {
@@ -652,6 +653,7 @@ button[type="submit"]:hover {
     align-items: center;
     backdrop-filter: blur(4px);
     transition: background 0.2s ease;
+    pointer-events: auto; /* Buttons should still be clickable */
 }
 
 .gallery-btn:hover {
