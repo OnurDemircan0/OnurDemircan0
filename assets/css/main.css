@@ -616,13 +616,13 @@ button[type="submit"]:hover {
     width: fit-content;
     max-width: 100%;
     margin: 0 auto;
-    max-height: 60vh; 
+    max-height: 500px; 
     display: flex;
 }
 
 .main-img-wrapper img {
     max-width: 100%;
-    max-height: 60vh;
+    max-height: 500px;
     object-fit: contain;
     transition: opacity 0.2s ease-in-out;
     display: block;
@@ -631,12 +631,12 @@ button[type="submit"]:hover {
 .gallery-controls {
     position: absolute;
     top: 50%;
-    left: 0;
-    right: 0;
+    left: -25px;
+    right: -25px;
     transform: translateY(-50%);
     display: flex;
     justify-content: space-between;
-    padding: 0 10px;
+    padding: 0;
     pointer-events: none; /* Let clicks pass through to the image below */
 }
 
@@ -822,6 +822,13 @@ button[type="submit"]:hover {
 .lightbox-btn:hover {
     background: var(--accent-primary);
     transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    .gallery-controls {
+        left: -15px;
+        right: -15px;
+    }
 }
 
 @media (max-width: 768px) {
