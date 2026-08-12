@@ -425,7 +425,7 @@ button[type="submit"]:hover {
 
 .card-header {
     display: flex;
-    align-items: center;
+    align-items: flex-start; /* Align to top so logos stay on the same line */
     gap: 1.5rem;
     cursor: pointer;
     transition: transform 0.2s ease;
@@ -436,12 +436,13 @@ button[type="submit"]:hover {
 }
 
 .app-logo {
-    width: 90px;
-    height: 90px;
+    width: 80px; /* Slightly smaller logo for 2-columns */
+    height: 80px;
     border-radius: 22%;
     object-fit: cover;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
     border: 1px solid var(--glass-border);
+    margin-top: 4px; /* Optically align with text */
 }
 
 .app-info {
@@ -449,9 +450,10 @@ button[type="submit"]:hover {
 }
 
 .app-info h3 {
-    margin-bottom: 0.25rem;
-    font-size: 1.5rem;
+    margin-bottom: 0.35rem;
+    font-size: 1.3rem; /* Slightly smaller to prevent excessive wrapping */
     color: var(--text-primary);
+    line-height: 1.3;
 }
 
 .card-header .card-desc {
@@ -468,12 +470,13 @@ button[type="submit"]:hover {
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid var(--glass-border);
     color: var(--text-primary);
-    padding: 0.6rem 1.5rem;
+    padding: 0.6rem 1.2rem;
     border-radius: 30px;
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     cursor: pointer;
     transition: all 0.2s;
+    align-self: center; /* Keep button vertically centered relative to header */
 }
 
 .card-header .view-btn:hover {
@@ -486,6 +489,7 @@ button[type="submit"]:hover {
     display: flex;
     align-items: center;
     margin: 0 auto;
+    margin-top: auto; /* This forces the gallery to the bottom, aligning perfectly with other cards in the grid row! */
     max-width: 100%;
     min-width: 0; /* Prevents overflow */
 }
