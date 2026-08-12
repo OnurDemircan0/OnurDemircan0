@@ -43,25 +43,42 @@ function makeDraggableScroll(slider) {
 function makeSwipeable(imgElement, onSwipeLeft, onSwipeRight) {
     let startX = 0;
     let isDown = false;
+    let isDragging = false;
 
     imgElement.addEventListener('mousedown', (e) => {
         isDown = true;
+        isDragging = false;
         startX = e.pageX;
         e.preventDefault();
         imgElement.style.cursor = 'grabbing';
     });
+    imgElement.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        let diff = e.pageX - startX;
+        if (Math.abs(diff) > 10) {
+            isDragging = true; // Mark as dragging if moved more than 10px
+        }
+    });
     imgElement.addEventListener('mouseup', (e) => {
         if (!isDown) return;
         isDown = false;
-        imgElement.style.cursor = 'grab';
+        imgElement.style.cursor = ''; // Revert to CSS cursor (zoom-in)
         let diff = e.pageX - startX;
         if (diff > 50) onSwipeRight();
         else if (diff < -50) onSwipeLeft();
     });
     imgElement.addEventListener('mouseleave', () => {
         isDown = false;
-        imgElement.style.cursor = 'grab';
+        imgElement.style.cursor = ''; // Revert to CSS cursor (zoom-in)
     });
+    
+    // Intercept click to prevent lightbox if we just swiped
+    imgElement.addEventListener('click', (e) => {
+        if (isDragging) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+    }, true); // Capture phase!
     
     imgElement.addEventListener('touchstart', (e) => {
         startX = e.touches[0].clientX;

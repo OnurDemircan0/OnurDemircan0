@@ -769,6 +769,11 @@ button[type="submit"]:hover {
     transform: scale(0.9);
     transition: transform 0.3s ease;
     object-fit: contain;
+    cursor: grab; /* Indicates that the image can be swiped */
+}
+
+.lightbox-content:active {
+    cursor: grabbing;
 }
 
 .lightbox-modal.active .lightbox-content {
