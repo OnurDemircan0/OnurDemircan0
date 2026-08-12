@@ -91,9 +91,20 @@ function setImage(index) {
     const mainImg = document.getElementById('main-gallery-img');
     mainImg.style.opacity = 0; // Fade out
     
+    const lightbox = document.getElementById('lightbox-modal');
+    const lightboxImg = document.getElementById('lightbox-img');
+    if (lightbox && lightbox.classList.contains('active') && lightboxImg) {
+        lightboxImg.style.opacity = 0;
+    }
+    
     setTimeout(() => {
         mainImg.src = currentProjectImages[currentImageIndex];
         mainImg.style.opacity = 1; // Fade in
+        
+        if (lightbox && lightbox.classList.contains('active') && lightboxImg) {
+            lightboxImg.src = currentProjectImages[currentImageIndex];
+            lightboxImg.style.opacity = 1;
+        }
     }, 200);
 
     // Update active thumbnail
@@ -134,11 +145,24 @@ function setupLightbox() {
     const lightboxImg = document.getElementById('lightbox-img');
     const closeBtn = document.querySelector('.lightbox-close');
     const mainImg = document.getElementById('main-gallery-img');
+    const lightboxNextBtn = document.getElementById('lightbox-next');
+    const lightboxPrevBtn = document.getElementById('lightbox-prev');
 
     if (mainImg && lightbox) {
         mainImg.addEventListener('click', () => {
             lightboxImg.src = mainImg.src;
+            lightboxImg.style.opacity = 1;
             lightbox.style.display = 'flex';
+            
+            // Show/hide arrows based on image count
+            if (currentProjectImages.length > 1) {
+                if (lightboxNextBtn) lightboxNextBtn.style.display = 'flex';
+                if (lightboxPrevBtn) lightboxPrevBtn.style.display = 'flex';
+            } else {
+                if (lightboxNextBtn) lightboxNextBtn.style.display = 'none';
+                if (lightboxPrevBtn) lightboxPrevBtn.style.display = 'none';
+            }
+            
             // slight delay to allow display flex to apply before opacity transition
             setTimeout(() => lightbox.classList.add('active'), 10);
         });
@@ -152,8 +176,22 @@ function setupLightbox() {
             closeBtn.addEventListener('click', closeLightbox);
         }
 
+        if (lightboxNextBtn) {
+            lightboxNextBtn.addEventListener('click', (e) => {
+                e.stopPropagation(); // prevent closing lightbox
+                nextImage();
+            });
+        }
+        
+        if (lightboxPrevBtn) {
+            lightboxPrevBtn.addEventListener('click', (e) => {
+                e.stopPropagation(); // prevent closing lightbox
+                prevImage();
+            });
+        }
+
         lightbox.addEventListener('click', (e) => {
-            if (e.target !== lightboxImg) {
+            if (e.target !== lightboxImg && e.target !== lightboxNextBtn && e.target !== lightboxPrevBtn) {
                 closeLightbox();
             }
         });
