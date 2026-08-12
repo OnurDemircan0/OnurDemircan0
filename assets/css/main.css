@@ -539,10 +539,10 @@ button[type="submit"]:hover {
 }
 
 .card-gallery img {
-    /* Exactly 3 images visible based on container width */
-    flex: 0 0 calc(33.333% - 0.67rem);
-    height: auto; 
+    height: 220px; /* Fixed height so they don't get huge */
+    width: auto;
     aspect-ratio: 9/16;
+    flex-shrink: 0;
     object-fit: cover;
     border-radius: 12px;
     scroll-snap-align: start;
