@@ -9,6 +9,25 @@ function scrollGallery(id, direction) {
     }
 }
 
+function updateGalleryArrows(gallery) {
+    if (!gallery) return;
+    const wrapper = gallery.closest('.card-gallery-wrapper');
+    if (!wrapper) return;
+
+    const leftArrow = wrapper.querySelector('.scroll-arrow.left');
+    const rightArrow = wrapper.querySelector('.scroll-arrow.right');
+
+    if (leftArrow) {
+        leftArrow.style.display = gallery.scrollLeft <= 5 ? 'none' : 'flex';
+    }
+    if (rightArrow) {
+        // scrollWidth is total scrollable content, clientWidth is visible area
+        const maxScroll = gallery.scrollWidth - gallery.clientWidth;
+        // if we are within 5px of the right edge, hide the right arrow
+        rightArrow.style.display = gallery.scrollLeft >= maxScroll - 5 ? 'none' : 'flex';
+    }
+}
+
 function makeDraggableScroll(slider) {
     let isDown = false;
     let startX;
@@ -114,6 +133,13 @@ function renderProjects() {
         if (gallery) {
             gallery.style.cursor = 'grab';
             makeDraggableScroll(gallery);
+            
+            // Update arrows on scroll
+            if (showArrows) {
+                gallery.addEventListener('scroll', () => updateGalleryArrows(gallery));
+                // Initial check after a short delay to allow layout to compute
+                setTimeout(() => updateGalleryArrows(gallery), 100);
+            }
         }
     });
 
