@@ -911,3 +911,19 @@ button[type="submit"]:hover {
 .contact-btn:hover svg {
     transform: scale(1.1);
 }
+
+
+/* Image Fade-in Illusion */
+.image-fade {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+.image-fade.loaded {
+    opacity: 1;
+}
+
+/* Glass skeleton placeholder background for images */
+.project-card, .main-image-container, .profile-image-container {
+    background-color: rgba(255, 255, 255, 0.03);
+}
+

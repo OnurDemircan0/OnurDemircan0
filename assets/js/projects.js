@@ -80,7 +80,7 @@ function renderProjects() {
         let imagesHTML = '';
         if (project.images && project.images.length > 0) {
             project.images.forEach(imgSrc => {
-                imagesHTML += `<img src="${imgSrc}" loading="lazy" alt="Screenshot" data-href="project.html?id=${project.id}">`;
+                imagesHTML += `<img src="${imgSrc}" loading="lazy" alt="Screenshot" class="image-fade" onload="this.classList.add('loaded')" data-href="project.html?id=${project.id}">`;
             });
         }
 
@@ -89,7 +89,9 @@ function renderProjects() {
 
         card.innerHTML = `
             <div class="card-header" onclick="window.location.href = 'project.html?id=${project.id}'">
-                <img src="${project.logo}" alt="${title} Logo" class="app-logo" loading="lazy">
+                <div class="profile-image-container" style="border-radius: 15px; overflow: hidden; width: 60px; height: 60px; flex-shrink: 0;">
+                    <img src="${project.logo}" alt="${title} Logo" class="app-logo image-fade" loading="lazy" onload="this.classList.add('loaded')" style="width: 100%; height: 100%;">
+                </div>
                 <div class="app-info">
                     <h3>${title}</h3>
                     <p class="card-desc">${shortDesc}</p>
