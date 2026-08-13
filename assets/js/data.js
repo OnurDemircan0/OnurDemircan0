@@ -71,6 +71,7 @@ const projectsData = [
             "assets/images/igt/Play Store Screenshot Room Settings En.png"
         ],
         storeLink: "https://play.google.com/store/apps/details?id=com.gravityvortex.islamicwordgames",
+        appStoreLink: "#",
         privacyLink: "#", 
         desc_short: {
             en: "A multiplayer word game featuring anagrams, word searches, and taboo-style challenges for Muslim families.",

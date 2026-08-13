@@ -256,7 +256,23 @@ function loadProjectDetails() {
     document.getElementById('proj-title').innerText = project.title;
     
     // Links
-    document.getElementById('store-link').href = project.storeLink;
+    const playStoreEl = document.getElementById('play-store-link');
+    const appStoreEl = document.getElementById('app-store-link');
+    
+    if (project.storeLink) {
+        playStoreEl.href = project.storeLink;
+        playStoreEl.style.display = 'inline-flex';
+    } else {
+        playStoreEl.style.display = 'none';
+    }
+    
+    if (project.appStoreLink) {
+        appStoreEl.href = project.appStoreLink;
+        appStoreEl.style.display = 'inline-flex';
+    } else {
+        appStoreEl.style.display = 'none';
+    }
+    
     document.getElementById('privacy-link').href = project.privacyLink;
 
     // Gallery Setup
