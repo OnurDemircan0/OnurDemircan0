@@ -46,7 +46,7 @@ const projectsData = [
             "assets/images/msc/Zig Zag Play Store 4.png"
         ],
         storeLink: "https://play.google.com/store/apps/details?id=com.gravity_vortex.mindsharp_challenges",
-        privacyLink: "#", 
+        privacyLink: "privacy-msc.html", 
         desc_short: {
             en: "A brain-training app featuring a variety of mini-games to improve reflexes, logic, and memory.",
             tr: "Refleks, mantık ve hafızayı geliştirmek için mini oyunlar içeren bir beyin jimnastiği uygulaması."
@@ -71,7 +71,7 @@ const projectsData = [
             "assets/images/igt/Play Store Screenshot Room Settings En.png"
         ],
         storeLink: "https://play.google.com/store/apps/details?id=com.gravityvortex.islamicwordgames",
-        appStoreLink: "#",
+        appStoreLink: "https://apps.apple.com/us/app/islamic-games-together/id6761419571",
         privacyLink: "#", 
         desc_short: {
             en: "A multiplayer word game featuring anagrams, word searches, and taboo-style challenges for Muslim families.",
