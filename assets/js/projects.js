@@ -34,6 +34,23 @@ function makeDraggableScroll(slider) {
     let scrollLeft;
     let isDragging = false;
 
+    const onMouseMove = (e) => {
+        if (!isDown) return;
+        const x = e.pageX - slider.offsetLeft;
+        const walk = (x - startX); // exactly 1:1 with mouse movement
+        if (Math.abs(walk) > 6) {
+            isDragging = true; // flag as dragging to prevent click
+        }
+        slider.scrollLeft = scrollLeft - walk;
+    };
+
+    const onMouseUp = () => {
+        isDown = false;
+        slider.style.cursor = 'grab';
+        window.removeEventListener('mousemove', onMouseMove);
+        window.removeEventListener('mouseup', onMouseUp);
+    };
+
     slider.addEventListener('mousedown', (e) => {
         isDown = true;
         isDragging = false;
@@ -44,26 +61,10 @@ function makeDraggableScroll(slider) {
         if (e.target.tagName.toLowerCase() === 'img') {
             e.preventDefault();
         }
-    });
-
-    slider.addEventListener('mouseleave', () => {
-        isDown = false;
-        slider.style.cursor = 'grab';
-    });
-
-    slider.addEventListener('mouseup', () => {
-        isDown = false;
-        slider.style.cursor = 'grab';
-    });
-
-    slider.addEventListener('mousemove', (e) => {
-        if (!isDown) return;
-        const x = e.pageX - slider.offsetLeft;
-        const walk = (x - startX); // exactly 1:1 with mouse movement
-        if (Math.abs(walk) > 6) {
-            isDragging = true; // flag as dragging to prevent click
-        }
-        slider.scrollLeft = scrollLeft - walk;
+        
+        // Listen on window so drag continues even if mouse leaves the gallery area
+        window.addEventListener('mousemove', onMouseMove);
+        window.addEventListener('mouseup', onMouseUp);
     });
 
     // Intercept clicks on images to prevent navigation if dragging
