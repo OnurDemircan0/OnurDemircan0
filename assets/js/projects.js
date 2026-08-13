@@ -100,7 +100,7 @@ function renderProjects() {
         let imagesHTML = '';
         if (project.images && project.images.length > 0) {
             project.images.forEach(imgSrc => {
-                imagesHTML += `<img src="${imgSrc}" loading="lazy" alt="Screenshot" class="image-fade" onload="this.classList.add('loaded')" data-href="project.html?id=${project.id}">`;
+                imagesHTML += `<div class="gallery-img-wrapper"><img src="${imgSrc}" loading="lazy" alt="Screenshot" class="image-fade" onload="this.classList.add('loaded')" data-href="project.html?id=${project.id}"></div>`;
             });
         }
 

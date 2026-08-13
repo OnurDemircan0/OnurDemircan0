@@ -551,24 +551,31 @@ button[type="submit"]:hover {
     display: none;
 }
 
-.card-gallery img {
+.gallery-img-wrapper {
     height: 220px; /* Fixed height so they don't get huge */
     width: auto;
     aspect-ratio: 9/16;
     flex-shrink: 0;
-    object-fit: cover;
     border-radius: 12px;
     border: 1px solid var(--glass-border);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    overflow: hidden; /* clip the inner img */
+}
+
+.gallery-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
     transition: opacity 0.3s ease;
 }
 
-.card-gallery img:hover {
+.gallery-img-wrapper img:hover {
     opacity: 0.9;
 }
 
 @media (max-width: 768px) {
-    .card-gallery img {
+    .gallery-img-wrapper {
         /* On mobile, show ~2.2 images so user knows they can scroll */
         flex: 0 0 calc(45% - 1rem);
     }
@@ -922,7 +929,7 @@ button[type="submit"]:hover {
 }
 
 /* Glass skeleton placeholder background for images */
-.project-card, .main-image-container, .profile-image-container {
+.project-card, .main-image-container, .profile-container, .gallery-img-wrapper {
     background-color: rgba(255, 255, 255, 0.03);
 }
 
