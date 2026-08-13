@@ -542,7 +542,6 @@ button[type="submit"]:hover {
     overflow-x: auto;
     padding-bottom: 0.5rem;
     -webkit-overflow-scrolling: touch;
-    scroll-behavior: smooth;
     /* Hide scrollbar since we have arrows now */
     scrollbar-width: none;
 }
