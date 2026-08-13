@@ -3,8 +3,8 @@
 function scrollGallery(id, direction) {
     const gallery = document.getElementById(`gallery-${id}`);
     if (gallery) {
-        // Scroll exactly one image width + gap
-        const scrollAmount = gallery.querySelector('img').clientWidth + 16; 
+        // Scroll 2 image widths + gaps
+        const scrollAmount = (gallery.querySelector('img').clientWidth + 16) * 2; 
         gallery.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
     }
 }

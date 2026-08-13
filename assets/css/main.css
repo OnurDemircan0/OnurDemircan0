@@ -540,7 +540,6 @@ button[type="submit"]:hover {
     display: flex;
     gap: 0.6rem;
     overflow-x: auto;
-    scroll-snap-type: x mandatory;
     padding-bottom: 0.5rem;
     -webkit-overflow-scrolling: touch;
     scroll-behavior: smooth;
@@ -558,7 +557,6 @@ button[type="submit"]:hover {
     flex-shrink: 0;
     object-fit: cover;
     border-radius: 12px;
-    scroll-snap-align: start;
     border: 1px solid var(--glass-border);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     transition: opacity 0.3s ease;
