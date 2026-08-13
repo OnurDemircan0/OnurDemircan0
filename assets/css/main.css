@@ -118,12 +118,18 @@ a.active .nav-btn {
     color: #fff;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 /* Main Content Container */
 main {
     flex: 1;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
+    gap: 4rem;
     padding: 100px 2rem 4rem; /* Top padding accounts for fixed header */
     width: 100%;
 }

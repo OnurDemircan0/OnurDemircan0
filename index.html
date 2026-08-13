@@ -10,9 +10,9 @@
 <body>
     <header>
         <nav class="nav-buttons">
-            <a href="index.html" class="active"><button class="nav-btn" data-i18n="nav_home">Home</button></a>
-            <a href="about.html"><button class="nav-btn" data-i18n="nav_about">About Me</button></a>
-            <a href="projects.html"><button class="nav-btn" data-i18n="nav_projects">My Projects</button></a>
+            <a href="#home" class="nav-link active"><button class="nav-btn" data-i18n="nav_home">Home</button></a>
+            <a href="#about" class="nav-link"><button class="nav-btn" data-i18n="nav_about">About Me</button></a>
+            <a href="#projects" class="nav-link"><button class="nav-btn" data-i18n="nav_projects">My Projects</button></a>
         </nav>
         <div class="lang-selector">
             <button class="lang-btn" data-lang="en">EN</button>
@@ -21,21 +21,55 @@
     </header>
 
     <main>
-        <section class="content-section">
+        <!-- Hero Section -->
+        <section id="home" class="content-section">
             <div class="profile-container">
                 <img src="assets/images/profile_photo.jpg" alt="Onur Demircan" class="profile-img">
             </div>
-
             <article>
                 <h1 class="center-sentence title" data-i18n="welcome">Welcome!</h1>
                 <p class="center-sentence paragraph" data-i18n="intro1">I'm Onur Demircan.</p>
                 <p class="center-sentence paragraph" data-i18n="intro2">I am a game developer and the founder of Gravity Vortex.</p>
             </article>
+        </section>
 
+        <!-- About Section -->
+        <section id="about" class="content-section">
+            <h1 data-i18n="about_title" class="title">About Me</h1>
+            <article>
+                <p class="paragraph" data-i18n="about_p1">I am a game developer.</p>
+                
+                <!-- The hidden text -->
+                <div id="fullText" style="display: none;">
+                    <p class="paragraph" data-i18n="about_p3">I have improved my coding skills by working both individually and in groups. I continued to improve my skills by solving algorithms on the Leetcode platform. Thanks to the different groups I have worked with, I am prone to teamwork and can solve problems quickly with my analytical thinking skills.</p>
+                </div>
+                
+                <span id="moreLink" class="show-more" onclick="showMore()" data-i18n="show_more">Show more...</span>
+                <span id="lessLink" class="show-less" style="display: none;" onclick="showLess()" data-i18n="show_less">...show less</span>
+            </article>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="content-section" style="max-width: 1000px;">
+            <div class="projects-header">
+                <h1 class="title" data-i18n="proj_title">Projects</h1>
+                <div class="filter-controls">
+                    <label for="sort-order" class="filter-text" data-i18n="proj_filter">Filter:</label>
+                    <select id="sort-order">
+                        <option value="earliest" data-i18n="proj_oldest">Oldest</option>
+                        <option value="latest" data-i18n="proj_newest" selected>Newest</option>
+                    </select>
+                </div>
+            </div>
+            <div id="projects-container" class="projects-grid">
+                <!-- Projects will be injected here by projects.js -->
+            </div>
         </section>
     </main>
 
     <script src="assets/js/i18n.js"></script>
+    <script src="assets/js/data.js"></script>
+    <script src="assets/js/projects.js"></script>
     <script src="assets/js/app.js"></script>
 </body>
 </html>
