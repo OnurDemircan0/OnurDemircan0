@@ -99,6 +99,9 @@ function resetLightboxZoom(clearStyle = false) {
     lightboxPanX = 0;
     lightboxPanY = 0;
     const img = document.getElementById('lightbox-img');
+    const modal = document.getElementById('lightbox-modal');
+    if (modal) modal.classList.remove('zoomed');
+    
     if (img) {
         if (clearStyle) {
             img.style.transform = '';
@@ -209,16 +212,19 @@ function makeLightboxInteractable(imgElement, onSwipeLeft, onSwipeRight) {
             return;
         }
         
+        const modal = document.getElementById('lightbox-modal');
         if (lightboxZoomLevel === 1) {
             lightboxZoomLevel = 2.5; 
             lightboxPanX = 0;
             lightboxPanY = 0;
             imgElement.style.cursor = 'zoom-out';
+            if (modal) modal.classList.add('zoomed');
         } else {
             lightboxZoomLevel = 1;
             lightboxPanX = 0;
             lightboxPanY = 0;
             imgElement.style.cursor = 'zoom-in';
+            if (modal) modal.classList.remove('zoomed');
         }
         imgElement.style.transition = 'transform 0.3s ease';
         updateTransform();
