@@ -639,8 +639,8 @@ button[type="submit"]:hover {
 .gallery-controls {
     position: absolute;
     top: 50%;
-    left: 10px;
-    right: 10px;
+    left: -22px;
+    right: -22px;
     transform: translateY(-50%);
     display: flex;
     justify-content: space-between;
@@ -851,8 +851,8 @@ button[type="submit"]:hover {
 
 @media (max-width: 768px) {
     .gallery-controls {
-        left: 5px;
-        right: 5px;
+        left: -15px;
+        right: -15px;
     }
 }
 
