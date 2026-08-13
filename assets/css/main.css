@@ -630,13 +630,18 @@ button[type="submit"]:hover {
 .gallery-controls {
     position: absolute;
     top: 50%;
-    left: -25px;
-    right: -25px;
+    left: -22px; /* Exactly half of 44px */
+    right: -22px;
     transform: translateY(-50%);
     display: flex;
     justify-content: space-between;
     padding: 0;
     pointer-events: none; /* Let clicks pass through to the image below */
+}
+
+/* Allow buttons to receive clicks even though container is pointer-events: none */
+.gallery-controls .lightbox-btn {
+    pointer-events: auto;
 }
 
 .gallery-btn {
@@ -801,26 +806,29 @@ button[type="submit"]:hover {
 }
 
 .lightbox-btn {
-    background: rgba(0, 0, 0, 0.6);
-    color: white;
+    background: rgba(255, 255, 255, 0.95); /* High contrast white */
+    color: #1a1a2e; /* Dark icon for contrast */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); /* Premium drop shadow */
     border: none;
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
+    width: 44px;
+    height: 44px;
     cursor: pointer;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    backdrop-filter: blur(4px);
-    transition: background 0.2s ease, transform 0.2s ease;
-    z-index: 10001;
-    flex-shrink: 0; /* Prevent buttons from squishing */
+    backdrop-filter: blur(8px);
+    transition: all 0.2s ease;
+    z-index: 10;
+    flex-shrink: 0;
 }
 
 .lightbox-btn:hover {
     background: var(--accent-primary);
+    color: white;
     transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
 }
 
 @media (max-width: 768px) {
