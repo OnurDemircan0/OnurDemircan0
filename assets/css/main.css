@@ -606,6 +606,7 @@ button[type="submit"]:hover {
     grid-template-columns: 1fr 1.5fr;
     gap: 3rem;
     margin-top: 2rem;
+    align-items: start;
 }
 
 @media (max-width: 768px) {
@@ -620,6 +621,8 @@ button[type="submit"]:hover {
     flex-direction: column;
     gap: 1rem;
     min-width: 0; /* Prevents thumbnails from expanding the grid column and squishing text */
+    position: sticky;
+    top: 90px;
 }
 
 .main-img-wrapper {
