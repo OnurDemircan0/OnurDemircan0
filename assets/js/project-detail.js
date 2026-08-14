@@ -319,7 +319,7 @@ function updateProjectText(project) {
     const lang = window.currentLang || 'en';
     const descEl = document.getElementById('proj-desc');
     if (descEl) {
-        descEl.innerText = project.desc_long[lang];
+        descEl.innerHTML = project.desc_long[lang];
     }
 }
 
