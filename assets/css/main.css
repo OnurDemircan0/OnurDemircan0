@@ -941,9 +941,15 @@ button[type="submit"]:hover {
 
 
 @media (max-width: 768px) {
-    main { padding: 80px 1rem 2rem; }
+    html { scroll-padding-top: 180px; }
+    main { padding: 180px 1rem 2rem; }
     .glass-card, .content-section { padding: 1.5rem; }
     .card-header { flex-wrap: wrap; gap: 1rem; }
     .card-header .view-btn { margin-top: 0.5rem; }
+}
+
+
+@media (max-width: 768px) {
+    .project-gallery { position: static; }
 }
 
