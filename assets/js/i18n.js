@@ -70,9 +70,11 @@ const translations = {
 };
 
 let currentLang = localStorage.getItem('lang') || 'en';
+window.currentLang = currentLang;
 
 function setLanguage(lang) {
     currentLang = lang;
+    window.currentLang = lang;
     localStorage.setItem('lang', lang);
     
     // Update texts

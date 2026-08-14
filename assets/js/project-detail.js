@@ -317,6 +317,10 @@ function loadProjectDetails() {
 
 function updateProjectText(project) {
     const lang = window.currentLang || 'en';
+    const titleEl = document.getElementById('proj-title');
+    if (titleEl) {
+        titleEl.innerText = typeof project.title === 'string' ? project.title : (project.title[lang] || project.title.en);
+    }
     const descEl = document.getElementById('proj-desc');
     if (descEl) {
         descEl.innerHTML = project.desc_long[lang];
@@ -332,6 +336,13 @@ if (typeof originalSetLanguage === 'function') {
         // Custom update for dynamic project text
         if (window.currentLoadedProject) {
             updateProjectText(window.currentLoadedProject);
+        }
+        
+        // Re-render main page projects if they exist
+        if (typeof renderProjects === 'function' && !window.isRenderingProjects) {
+            window.isRenderingProjects = true;
+            renderProjects();
+            window.isRenderingProjects = false;
         }
     };
 }
