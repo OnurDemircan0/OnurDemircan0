@@ -33,9 +33,8 @@ document.addEventListener("DOMContentLoaded", () => {
         // Find the current section
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            // Trigger threshold is roughly 1/3 down the viewport
-            if (scrollY >= (sectionTop - sectionHeight / 3) - 100) { 
+            // Use a fixed offset for the header instead of section height which breaks for very tall sections
+            if (scrollY >= sectionTop - 120) { 
                 current = section.getAttribute("id");
             }
         });
