@@ -580,6 +580,7 @@ button[type="submit"]:hover {
     .gallery-img-wrapper {
         /* On mobile, show ~2.2 images so user knows they can scroll */
         flex: 0 0 calc(45% - 1rem);
+        height: auto;
     }
     .app-logo {
         width: 70px;
@@ -936,5 +937,13 @@ button[type="submit"]:hover {
 /* Glass skeleton placeholder background for images */
 .project-card, .main-image-container, .profile-container, .gallery-img-wrapper {
     background-color: rgba(255, 255, 255, 0.03);
+}
+
+
+@media (max-width: 768px) {
+    main { padding: 80px 1rem 2rem; }
+    .glass-card, .content-section { padding: 1.5rem; }
+    .card-header { flex-wrap: wrap; gap: 1rem; }
+    .card-header .view-btn { margin-top: 0.5rem; }
 }
 
