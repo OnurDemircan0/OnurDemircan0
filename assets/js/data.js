@@ -35,15 +35,15 @@ const projectsData = [
         logo: "assets/images/msc/MindSharp Challenges Logo 1024x1024.png",
         images: [
             "assets/images/msc/Multiple Games Showcase Play Store en.png",
-            "assets/images/msc/Color Confusion Play Store en.png",
-            "assets/images/msc/Memory Order Play Store en.png",
             "assets/images/msc/Sliding Puzzle Play Store 2.png",
             "assets/images/msc/Sliding Puzzle Play Store 3.png",
-            "assets/images/msc/Stack Play Store.png",
+            "assets/images/msc/Memory Order Play Store en.png",
+            "assets/images/msc/Color Confusion Play Store en.png",
             "assets/images/msc/Stack Play Store 3.png",
-            "assets/images/msc/Two Cars Play Store 2.png",
+            "assets/images/msc/Stack Play Store.png",
+            "assets/images/msc/Zig Zag Play Store 4.png",
             "assets/images/msc/Zig Zag Play Store 2.png",
-            "assets/images/msc/Zig Zag Play Store 4.png"
+            "assets/images/msc/Two Cars Play Store 2.png"
         ],
         storeLink: "https://play.google.com/store/apps/details?id=com.gravity_vortex.mindsharp_challenges",
         privacyLink: "privacy-msc.html", 
