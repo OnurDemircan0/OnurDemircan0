@@ -273,7 +273,23 @@ function loadProjectDetails() {
         appStoreEl.style.display = 'none';
     }
     
-    document.getElementById('privacy-link').href = project.privacyLink;
+    const privacyEl = document.getElementById('privacy-link');
+    if (project.privacyLink && project.privacyLink !== '#') {
+        privacyEl.href = project.privacyLink;
+        privacyEl.style.display = 'inline-flex';
+    } else {
+        privacyEl.style.display = 'none';
+    }
+
+    const termsEl = document.getElementById('terms-link');
+    if (termsEl) {
+        if (project.termsLink && project.termsLink !== '#') {
+            termsEl.href = project.termsLink;
+            termsEl.style.display = 'inline-flex';
+        } else {
+            termsEl.style.display = 'none';
+        }
+    }
 
     // Gallery Setup
     currentProjectImages = project.images || [project.thumbnail];

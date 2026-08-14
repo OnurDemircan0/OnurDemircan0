@@ -31,6 +31,7 @@ const translations = {
         btn_back: "← Back to Projects",
         btn_store: "Play Store",
         btn_privacy: "Privacy Policy",
+        btn_terms: "Terms of Use",
         error_not_found: "Project not found."
     },
     tr: {
@@ -65,6 +66,7 @@ const translations = {
         btn_back: "← Projelere Dön",
         btn_store: "Play Store",
         btn_privacy: "Gizlilik Politikası",
+        btn_terms: "Kullanım Koşulları",
         error_not_found: "Proje bulunamadı."
     }
 };
