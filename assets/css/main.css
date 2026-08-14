@@ -546,6 +546,7 @@ button[type="submit"]:hover {
     -webkit-overflow-scrolling: touch;
     /* Hide scrollbar since we have arrows now */
     scrollbar-width: none;
+    user-select: none; /* Prevent text selection highlight when swiping blank areas */
 }
 .card-gallery::-webkit-scrollbar {
     display: none;
