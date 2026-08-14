@@ -197,3 +197,20 @@ window.addEventListener('DOMContentLoaded', () => {
         selectElement.addEventListener('change', sortProjectsChronological);
     }
 });
+
+// Intercept language changes to re-render projects
+const originalSetLanguage = window.setLanguage;
+if (typeof originalSetLanguage === 'function') {
+    window.setLanguage = function(lang) {
+        originalSetLanguage(lang); // Call standard translation
+        
+        if (typeof renderProjects === 'function' && !window.isRenderingProjects) {
+            window.isRenderingProjects = true;
+            renderProjects();
+            if (typeof sortProjectsChronological === 'function') {
+                sortProjectsChronological();
+            }
+            window.isRenderingProjects = false;
+        }
+    };
+}
