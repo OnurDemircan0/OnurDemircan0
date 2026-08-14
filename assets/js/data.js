@@ -75,7 +75,7 @@ const projectsData = [
         ],
         storeLink: "https://play.google.com/store/apps/details?id=com.gravityvortex.islamicwordgames",
         appStoreLink: "https://apps.apple.com/us/app/islamic-games-together/id6761419571",
-        privacyLink: "#", 
+        privacyLink: "privacy-igt.html", 
         desc_short: {
             en: "A multiplayer word game featuring anagrams, word searches, and taboo-style challenges for Muslim families.",
             tr: "Müslüman aileler için anagram, kelime arama ve tabu tarzı modlar içeren çok oyunculu kelime oyunu."
