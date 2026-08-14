@@ -21,6 +21,11 @@ function showLess() {
     if (moreLink) moreLink.style.display = 'block';
 }
 
+// Prevent browser from restoring scroll position incorrectly on refresh due to dynamic content
+if (history.scrollRestoration) {
+    history.scrollRestoration = 'manual';
+}
+
 // ScrollSpy Logic
 document.addEventListener("DOMContentLoaded", () => {
     const sections = document.querySelectorAll("section[id]");
