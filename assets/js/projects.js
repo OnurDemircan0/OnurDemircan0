@@ -150,7 +150,7 @@ function renderProjects() {
     }
 }
 
-function sortProjectsChronological() {
+function sortProjectsChronological(skipAnimation = false) {
     const selectElement = document.getElementById('sort-order');
     const container = document.getElementById('projects-container');
     
@@ -158,6 +158,18 @@ function sortProjectsChronological() {
 
     const order = selectElement.value;
     const cards = Array.from(container.children);
+    
+    const shouldSkip = skipAnimation === true;
+
+    if (shouldSkip) {
+        cards.sort((a, b) => {
+            const dateA = new Date(a.getAttribute('data-date'));
+            const dateB = new Date(b.getAttribute('data-date'));
+            return order === 'latest' ? dateB - dateA : dateA - dateB;
+        });
+        cards.forEach(card => container.appendChild(card));
+        return;
+    }
     
     // Fade out for visual effect
     container.style.opacity = '0';
@@ -208,7 +220,7 @@ if (typeof originalSetLanguage === 'function') {
             window.isRenderingProjects = true;
             renderProjects();
             if (typeof sortProjectsChronological === 'function') {
-                sortProjectsChronological();
+                sortProjectsChronological(true); // Skip animation to prevent blink
             }
             window.isRenderingProjects = false;
         }
