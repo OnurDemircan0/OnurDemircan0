@@ -120,6 +120,7 @@ a.active .nav-btn {
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 100px;
 }
 
 /* Main Content Container */
