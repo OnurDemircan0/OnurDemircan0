@@ -39,6 +39,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 current = section.getAttribute("id");
             }
         });
+
+        // Check if scrolled to the very bottom of the page
+        if ((window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight - 50) {
+            if (sections.length > 0) {
+                current = sections[sections.length - 1].getAttribute("id");
+            }
+        }
         
         // Update active class on nav links
         navLinks.forEach(link => {
