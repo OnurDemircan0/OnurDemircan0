@@ -253,7 +253,7 @@ function loadProjectDetails() {
     document.getElementById('project-detail-container').style.display = 'block';
 
     // Set Data
-    document.getElementById('proj-title').innerText = project.title;
+    document.getElementById('proj-title').innerText = typeof project.title === 'string' ? project.title : (project.title[window.currentLang || 'en'] || project.title.en);
     
     // Links
     const playStoreEl = document.getElementById('play-store-link');

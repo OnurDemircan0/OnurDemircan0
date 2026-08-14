@@ -93,7 +93,7 @@ function renderProjects() {
         
         // Determine current text based on language
         const lang = window.currentLang || 'en';
-        const title = project.title;
+        const title = typeof project.title === 'string' ? project.title : (project.title[lang] || project.title.en);
         const shortDesc = project.desc_short[lang];
 
         // Generate images HTML
