@@ -130,7 +130,7 @@ main {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    gap: 4rem;
+    gap: 3rem;
     padding: 100px 2rem 4rem; /* Top padding accounts for fixed header */
     width: 100%;
 }
@@ -942,7 +942,10 @@ button[type="submit"]:hover {
 
 @media (max-width: 768px) {
     html { scroll-padding-top: 130px; }
-    main { padding: 130px 0.5rem 0.5rem; }
+    main { 
+        padding: 130px 0.5rem 0.5rem; 
+        gap: 2rem;
+    }
     .glass-card, .content-section { padding: 1.5rem; }
     .card-header { flex-wrap: wrap; gap: 1rem; }
     .card-header .view-btn { margin-top: 0.5rem; }
