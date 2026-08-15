@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
             // Use a fixed offset for the header instead of section height which breaks for very tall sections
-            if (scrollY >= sectionTop - 120) { 
+            if (scrollY >= sectionTop - 150) { 
                 current = section.getAttribute("id");
             }
         });
