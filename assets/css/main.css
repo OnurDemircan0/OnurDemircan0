@@ -179,8 +179,9 @@ h1, h2, h3 {
 .title {
     font-size: 3rem;
     font-weight: 700;
-    color: var(--text-primary);
-    text-shadow: 0 0 25px rgba(56, 189, 248, 0.5); /* Soft neon glow */
+    background: linear-gradient(to bottom right, #ffffff 20%, var(--accent-primary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     margin-bottom: 0.5rem;
 }
 
