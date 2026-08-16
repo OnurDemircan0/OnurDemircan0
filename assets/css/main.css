@@ -183,10 +183,13 @@ h1, h2, h3 {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: 0.5rem;
+    width: fit-content;
 }
 
 .center-sentence {
     text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .paragraph {
